@@ -128,5 +128,7 @@ main > #options-container :not(label) {
     --color-border: #555;
     --color-button: #1a1a1a;
     --color-input: #333;
+    --color-primary: #80a8ff;
+    --color-primary-hover: #99b9ff;
   }
 }
