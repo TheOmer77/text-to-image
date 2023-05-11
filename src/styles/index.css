@@ -1,0 +1,133 @@
+:root {
+  --color-bg: #fff;
+  --color-text: #213547;
+  --color-border: #ccc;
+  --color-button: #f9f9f9;
+  --color-input: #f6f6f6;
+  --color-primary: #1a62ff;
+  --color-primary-hover: #3374ff;
+
+  font-family: 'Rubik', sans-serif;
+  line-height: 1.5rem;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+  margin-inline: auto;
+  min-height: 100vh;
+  max-width: 75rem;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--color-button);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: var(--color-primary);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+input {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--color-input);
+  color: var(--color-text);
+  box-shadow: 0 0 0 1px var(--color-border);
+  transition: box-shadow 150ms ease-in-out;
+}
+
+input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+header {
+  margin-block-end: 1rem;
+}
+
+header > h1,
+header > p {
+  margin: 0;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 25rem;
+  width: 100%;
+}
+
+main > #text-input {
+  width: 100%;
+  margin-block-end: 0.5rem;
+}
+
+main > #result-container > #result-img {
+  border: 1px solid var(--color-border);
+}
+
+main > #result-container > #result-img:not([src]) {
+  display: none;
+}
+
+main > #options-container {
+  display: flex;
+  flex-direction: column;
+}
+main > #options-container :not(label) {
+  margin-block-end: 0.5rem;
+}
+
+#user-agent-text {
+  width: 100%;
+  white-space: pre-wrap;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #242424;
+    --color-text: #ffffffde;
+    --color-border: #555;
+    --color-button: #1a1a1a;
+    --color-input: #333;
+  }
+}
