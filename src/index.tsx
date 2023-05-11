@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
+import './utils/polyfills';
 
 import '@fontsource/rubik/400.css';
 import '@fontsource/rubik/700.css';
