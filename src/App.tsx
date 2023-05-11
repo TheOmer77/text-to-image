@@ -1,13 +1,16 @@
-import { useCallback, useState } from 'react';
-import textToDataUrl from './utils/textToDataUrl';
-import { defaultTextProperties } from './constants';
+import { Fragment, useCallback, useState } from 'react';
+import textToDataUrl, { type TextImageProperties } from './utils/textToDataUrl';
+import { defaultTextProperties, optionsFields } from './constants';
 
 const App = () => {
   const [text, setText] = useState('');
+  const [textProps, setTextProps] = useState<TextImageProperties>(
+    defaultTextProperties
+  );
 
   const getTextImg = useCallback(
-    () => textToDataUrl(text, defaultTextProperties),
-    [text]
+    () => textToDataUrl(text, textProps),
+    [text, textProps]
   );
 
   return (
@@ -26,8 +29,22 @@ const App = () => {
           <input
             type='text'
             id='input-text'
+            value={text || ''}
             onChange={(e) => setText(e.target.value)}
           />
+          {optionsFields.map(({ id, label, type }) => (
+            <Fragment key={id}>
+              <label htmlFor={`input-${id}`}>{label}</label>
+              <input
+                type={type === 'number' ? 'number' : 'text'}
+                id={`input-${id}`}
+                value={textProps[id as keyof TextImageProperties]}
+                onChange={(e) =>
+                  setTextProps((prev) => ({ ...prev, [id]: e.target.value }))
+                }
+              />
+            </Fragment>
+          ))}
         </div>
       </main>
 

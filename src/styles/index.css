@@ -35,7 +35,7 @@ body {
   margin: 0;
   padding: 1rem;
   margin-inline: auto;
-  min-height: 100vh;
+  max-height: 100vh;
   max-width: 75rem;
   box-sizing: border-box;
 }
@@ -94,11 +94,7 @@ main {
   display: grid;
   grid-template-columns: 1fr 25rem;
   width: 100%;
-}
-
-main > #text-input {
-  width: 100%;
-  margin-block-end: 0.5rem;
+  max-height: calc(100vh - 12rem);
 }
 
 main > #result-container > #result-img {
@@ -112,6 +108,9 @@ main > #result-container > #result-img:not([src]) {
 main > #options-container {
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  padding-inline: 0.25rem;
+  max-height: inherit;
 }
 main > #options-container :not(label) {
   margin-block-end: 0.5rem;
